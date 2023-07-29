@@ -19,6 +19,12 @@
         <label for="gender">Gender:</label>
         <input type="text" id="gender" name="gender" required>
         <br><br>
+        <label for="yearsOfExp">yearsOfExp:</label>
+        <input type="text" id="yearsOfExp" name="yearsOfExp" required>
+        <br><br>
+        <label for="rank">rank:</label>
+        <input type="text" id="rank" name="rank" required>
+        <br><br>
         <label for="phone">Phone:</label>
         <input type="text" id="phone" name="phoneNumber" required>
         <br><br>
@@ -46,15 +52,17 @@
             formData.append('lastName', document.getElementById('lastName').value);
             formData.append('gender', document.getElementById('gender').value);
             formData.append('aboutTutor', document.getElementById('aboutTutor').value);
+            formData.append('yearsOfExp', document.getElementById('yearsOfExp').value);
             formData.append('email', document.getElementById('email').value);
             formData.append('phoneNumber', document.getElementById('phone').value);
+            formData.append('rank', document.getElementById('rank').value);
             formData.append('courseName', document.getElementById('courseName').value);
             console.log(formData);
 
             const myHeaders = new Headers();
-            myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZmlyc3ROYW1lIjoiUmV3cWF4IiwibGFzdE5hbWUiOiJmcmVkd2EiLCJlbWFpbCI6ImFzZUBnbWFpbC5jb20iLCJnZW5kZXIiOm51bGwsInVzZXJUeXBlIjoiYWRtaW5pc3RyYXRvciIsImlzVmVyaWZpZWQiOnRydWUsImltYWdlX3VybCI6bnVsbCwicGhvbmVOdW1iZXIiOiIwOTg3NjU0MzIxIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTY4OTMzNzg2MiwiZXhwIjoxNjg5NDI0MjYyfQ.nJ0mbMqWdC0eB9JzBOCrnR3m1ZLsXlobolfguYaLFLw")
+            myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoiRW1tYW51ZWwiLCJsYXN0TmFtZSI6Ik9zdWJ1IiwiZW1haWwiOiJlbW1hbnVlbEBxdWFudGEuY29tIiwiaW1hZ2VfdXJsIjpudWxsLCJnZW5kZXIiOm51bGwsInVzZXJUeXBlIjoic3VwZXJhZG1pbiIsImlzVmVyaWZpZWQiOnRydWUsInV1aWQiOiI3ZjUwOGMxNC1jM2M0LTQzMzEtOGI3YS1hZWIwMDg2NmQwZjQiLCJwaG9uZU51bWJlciI6IjA5MTIzNDU5ODkiLCJpc0FjdGl2ZSI6dHJ1ZSwiY3JlYXRlZEF0IjoiMjAyMy0wNy0yM1QyMjowMzoxOC42NjVaIiwidXBkYXRlZEF0IjoiMjAyMy0wNy0yNFQwNjo1ODowNy42NjlaIiwiZGVsZXRlZEF0IjpudWxsLCJpYXQiOjE2OTAxODE5MDYsImV4cCI6MTY5MDI2ODMwNn0.kVA4MKBqgFZHx-LjWerfWp7NiszalpLw50KvBf2EvJs")
 
-            fetch("http://localhost:5001/api/v1/user/facilitator", {
+            fetch("https://talent-dev-api.onrender.com/api/v1/user/facilitator", {
                 method: 'POST',
                 headers: myHeaders,
                 body: formData
